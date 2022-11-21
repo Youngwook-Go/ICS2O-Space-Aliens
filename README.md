@@ -4,4 +4,4 @@
 
 [![Run on Repl.it](https://repl.it/badge/github/Youngwook-Go/ICS2O-Space-Aliens-01-04)](https://repl.it/github/Youngwook-Go/ICS2O-Space-Aliens)
 
-This site can be found at: [https://Youngwook-Go.github.io/ICS2O-Space-Aliens/](https://Youngwook-Go.github.io/ICS2O-Space-Aliens/)
+This site can be found at: [https://Youngwook-Go.github.io/ICS2O-Space-Aliens/](https://Youngwook-Go.github.io/ICS2O-Space-Aliens)
