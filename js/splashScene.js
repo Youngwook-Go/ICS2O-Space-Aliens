@@ -7,7 +7,7 @@
 // This file contains the JS functions for index.html
 
 /**
- * This class is the Splash Scene
+ * This class is the Splash Scene.
 **/
 
 class SplashScene extends Phaser.Scene 
