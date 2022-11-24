@@ -7,33 +7,27 @@
 // This file contains the JS functions for index.html
 
 /**
- * This class is the Splash Scene.
+ * This class is the Splash Scene
 **/
 
-class SplashScene extends Phaser.Scene 
-{
+class SplashScene extends Phaser.Scene {
   /**
    * This method is the constructor.
   **/
-  constructor()
-  {
+  constructor() {
     super({ key: "splashScene" })
     this.splashSceneBackgroundImage = null
   }
-  init(data) 
-
-  {
+  init(data) {
     this.cameras.main.setBackgroundColor("ffffff")
   }
 
-  preload()
-  {
+  preload() {
     console.log("Splash Scene")
     this.load.image("splashSceneBackground", "./assets/splashSceneImage.png")
   }
-  
-  create(data) 
-  {
+
+  create(data) {
     this.splashSceneBackgroundImage = this.add.sprite(
       0, 0, "splashSceneBackground"
     )
@@ -41,10 +35,9 @@ class SplashScene extends Phaser.Scene
     this.splashSceneBackgroundImage.y = 1080 / 2
   }
 
-  update(time, delta)
-  {
+  update(time, delta) {
     if (time > 3000) {
-    this.scene.switch("titleScene")
+      this.scene.switch("titleScene")
     }
   }
 }
