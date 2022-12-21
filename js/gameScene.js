@@ -34,11 +34,12 @@ class GameScene extends Phaser.Scene {
     this.score = 0
     this.scoreText = null
     this.scoreTextStyle = { font: '65px Arial', fill: '#ffffff', align: 'center'}
+    this.gameOverTextStyle = { font: '65px Arial', fill: '#ff0000', align: 'center'}
   }
   
   init(data) 
   {
-    this.cameras.main.setBackgroundColor('ffffff')
+    this.cameras.main.setBackgroundColor('#0x5f6e7a')
   }
   
   preload()
@@ -52,6 +53,7 @@ class GameScene extends Phaser.Scene {
     
     this.load.audio('laser', './assets/laser1.wav')
     this.load.audio('explosion', './assets/barrelExploding.wav')
+    this.load.audio('bomb', './assets/bomb.wav')
   }
   
   create(data) 
@@ -75,6 +77,16 @@ class GameScene extends Phaser.Scene {
       this.scoreText.setText('Score: ' + this.score.toString())
       this.createAlien()
       this.createAlien()
+    }.bind(this))
+
+    this.physics.add.collider(this.ship, this.alienGroup, function(shipCollide, alienCollide) {
+      this.sound.play('bomb')
+      this.physics.pause()
+      alienCollide.destroy()
+      shipCollide.destroy()
+      this.gameOverText = this.add.text(1920 / 2, 1080 / 2, "Game Over!\nClick to play again", this.gameOverTextStyle).setOrigin(0.5)
+      this.gameOverText.setInteractive({ useHandCursor: true})
+      this.gameOverText.on("pointerdown", () => this.scene.start("gameScene"))
     }.bind(this))
   }
 
